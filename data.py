@@ -2,23 +2,23 @@ from pyrogram.types import InlineKeyboardButton
 
 
 class Data:
-    generate_single_button = [InlineKeyboardButton("🔥 Start Generating Session 🔥", callback_data="generate")]
+    generate_single_button = [InlineKeyboardButton("🦋 𝑺𝒕𝒂𝒓𝒕 𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒊𝒏𝒈 𝑺𝒆𝒔𝒔𝒊𝒐𝒏 🦋", callback_data="generate")]
 
     home_buttons = [
         generate_single_button,
-        [InlineKeyboardButton(text="🏠 Return Home 🏠", callback_data="home")]
+        [InlineKeyboardButton(text="🍨 𝑹𝒆𝒕𝒖𝒓𝒏 𝑯𝒐𝒎𝒆 🍨", callback_data="home")]
     ]
 
     generate_button = [generate_single_button]
 
     buttons = [
         generate_single_button,
-        [InlineKeyboardButton("✨ Bot Status and More Bots ✨", url="https://t.me/ELUpdates/8")],
+        [InlineKeyboardButton("🧊 𝑩𝒐𝒕 𝑺𝒕𝒂𝒕𝒖𝒔 𝒂𝒏𝒅 𝑴𝒐𝒓𝒆 𝑩𝒐𝒕𝒔 🧊", url="https://t.me/ELUpdates/8")],
         [
-            InlineKeyboardButton("How to Use ❔", callback_data="help"),
-            InlineKeyboardButton("🎪 About 🎪", callback_data="about")
-        ],
-        [InlineKeyboardButton("♥ More Amazing bots ♥", url="https://t.me/ELUpdates")],
+            InlineKeyboardButton("👻 𝑯𝒐𝒘 𝒕𝒐 𝑼𝒔𝒆 👻", callback_data="help"),
+            InlineKeyboardButton("🌲 𝑨𝒃𝒐𝒖𝒕 🌲", callback_data="about")
+        ]
+        
     ]
 
     START = """
@@ -33,7 +33,7 @@ If you don't trust this bot,
 Still reading?
 You can use me to generate Pyrogram and Telethon string session. Use below buttons to learn more !
 
-By @ELUpdates**
+By @The_Architect04**
     """
 
     HELP = """
