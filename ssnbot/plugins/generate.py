@@ -28,11 +28,11 @@ from telethon.sessions import StringSession
 from data import Data
 from ssnbot import LOGGER
 
-ask_ques = "Please choose the python library you want to generate string session for"
+ask_ques = "ᴘʟᴇᴀꜱᴇ ᴄʜᴏᴏꜱᴇ ᴛʜᴇ ᴘʏᴛʜᴏɴ ʟɪʙʀᴀʀʏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ꜰᴏʀ 🤖"
 buttons_ques = [
     [
-        InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
-        InlineKeyboardButton("Telethon", callback_data="telethon"),
+        InlineKeyboardButton("🌿ᴘʏʀᴏɢʀᴀᴍ🌿", callback_data="pyrogram"),
+        InlineKeyboardButton("🌲ᴛᴇʟᴇᴛʜᴏɴ🌲", callback_data="telethon"),
     ],
 ]
 
@@ -55,7 +55,7 @@ async def generate_session(
         ty = "Pyrogram"
     if is_bot:
         ty += " Bot"
-    await msg.reply(f"Starting {ty} Session Generation...")
+    await msg.reply(f"ꜱᴛᴀʀᴛɪɴɢ {ty} ꜱᴇꜱꜱɪᴏɴ ɢᴇɴᴇʀᴀᴛɪᴏɴ🪺...")
 
     user_id = msg.chat.id
     try:
@@ -63,7 +63,7 @@ async def generate_session(
             user_id, "Please send your `API_ID`", filters=filters.text, timeout=360
         )
     except TimeoutError:
-        await msg.reply_text("Request timed out, please try again with /start")
+        await msg.reply_text("ʀᴇQᴜᴇꜱᴛ ᴛɪᴍᴇᴅ ᴏᴜᴛ, ᴘʟᴇᴀꜱᴇ ᴛʀʏ ᴀɢᴀɪɴ ᴡɪᴛʜ /start")
         return
 
     if await cancelled(api_id_msg):
@@ -73,7 +73,7 @@ async def generate_session(
         api_id = int(api_id_msg.text)
     except ValueError:
         await api_id_msg.reply(
-            "Not a valid API_ID (which must be an integer). Please start generating session again.",
+            "Not a valid API_ID (which must be an integer). ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ🌱.",
             quote=True,
             reply_markup=InlineKeyboardMarkup(Data.generate_button),
         )
@@ -81,33 +81,33 @@ async def generate_session(
 
     try:
         api_hash_msg = await bot.ask_message(
-            user_id, "Please send your `API_HASH`", filters=filters.text, timeout=360
+            user_id, "ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ `API_HASH`", filters=filters.text, timeout=360
         )
     except TimeoutError:
-        await msg.reply_text("Request timed out, please try again with /start")
+        await msg.reply_text("ʀᴇQᴜᴇꜱᴛ ᴛɪᴍᴇᴅ ᴏᴜᴛ, ᴘʟᴇᴀꜱᴇ ᴛʀʏ ᴀɢᴀɪɴ ᴡɪᴛʜ /start")
         return
     if await cancelled(api_hash_msg):
         return
 
     api_hash = api_hash_msg.text
     if not is_bot:
-        t = "Now please send your `PHONE_NUMBER` along with the country code. \nExample : `+19876543210`'"
+        t = "ɴᴏᴡ ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ `PHONE_NUMBER` ᴀʟᴏɴɢ ᴡɪᴛʜ ᴛʜᴇ ᴄᴏᴜɴᴛʀʏ ᴄᴏᴅᴇ⚡ \nᴇxᴀᴍᴘʟᴇ : `+19876543210`'"
     else:
-        t = "Now please send your `BOT_TOKEN` \nExample : `12345:abcdefghijklmnopqrstuvwxyz`'"
+        t = "ɴᴏᴡ ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ʏᴏᴜʀ `BOT_TOKEN` \nᴇxᴀᴍᴘʟᴇ : `12345:abcdefghijklmnopqrstuvwxyz`'"
 
     try:
         phone_number_msg = await bot.ask_message(
             user_id, t, filters=filters.text, timeout=360
         )
     except TimeoutError:
-        await msg.reply_text("Request timed out, please try again with /start")
+        await msg.reply_text("ʀᴇQᴜᴇꜱᴛ ᴛɪᴍᴇᴅ ᴏᴜᴛ, ᴘʟᴇᴀꜱᴇ ᴛʀʏ ᴀɢᴀɪɴ /start")
         return
     
     if await cancelled(phone_number_msg):
         return
 
     phone_number = phone_number_msg.text
-    await msg.reply("Sending OTP...")
+    await msg.reply("ꜱᴇɴᴅɪɴɢ ᴏᴛᴘ👀...")
 
     if telethon and is_bot:
         clientt = TelegramClient(StringSession(), api_id, api_hash)
@@ -141,22 +141,22 @@ async def generate_session(
                 code = await clientt.send_code(phone_number)
     except (ApiIdInvalid, ApiIdInvalidError):
         await msg.reply(
-            "`API_ID` and `API_HASH` combination is invalid. Please start generating session again.",
+            "`API_ID` and `API_HASH` ᴄᴏᴍʙɪɴᴀᴛɪᴏɴ ɪꜱ ɪɴᴠᴀʟɪᴅ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ😶.",
             reply_markup=InlineKeyboardMarkup(Data.generate_button),
         )
         return
     except (PhoneNumberInvalid, PhoneNumberInvalidError):
         await msg.reply(
-            "`PHONE_NUMBER` is invalid. Please start generating session again.",
+            "`PHONE_NUMBER` ɪꜱ ɪɴᴠᴀʟɪᴅ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ💤.",
             reply_markup=InlineKeyboardMarkup(Data.generate_button),
         )
         return
     except PhoneNumberBanned:
-        await msg.reply("`PHONE_NUMBER` is banned, please try with another number.")
+        await msg.reply("`PHONE_NUMBER` ɪꜱ ʙᴀɴɴᴇᴅ, ᴘʟᴇᴀꜱᴇ ᴛʀʏ ᴡɪᴛʜ ᴀɴᴏᴛʜᴇʀ ɴᴜᴍʙᴇʀ🌪️")
         return
     except PhonePasswordFlood:
         await msg.reply(
-            "Unable to send code, you have tried logging in too many times."
+            "ᴜɴᴀʙʟᴇ ᴛᴏ ꜱᴇɴᴅ ᴄᴏᴅᴇ, ʏᴏᴜ ʜᴀᴠᴇ ᴛʀɪᴇᴅ ʟᴏɢɢɪɴɢ ɪɴ ᴛᴏᴏ ᴍᴀɴʏ ᴛɪᴍᴇꜱ🍩"
         )
         return
 
@@ -165,7 +165,7 @@ async def generate_session(
         if not is_bot:
             phone_code_msg = await bot.ask_message(
                 user_id,
-                "Please check for an OTP in official telegram account. If you got it, send OTP here after reading the below format. \nIf OTP is `12345`, **please send it as** `1 2 3 4 5`.",
+                "ᴘʟᴇᴀꜱᴇ ᴄʜᴇᴄᴋ ꜰᴏʀ ᴀɴ ᴏᴛᴘ ɪɴ ᴏꜰꜰɪᴄɪᴀʟ ᴛᴇʟᴇɢʀᴀᴍ ᴀᴄᴄᴏᴜɴᴛ. ɪꜰ ʏᴏᴜ ɢᴏᴛ ɪᴛ, ꜱᴇɴᴅ ᴏᴛᴘ ʜᴇʀᴇ ᴀꜰᴛᴇʀ ʀᴇᴀᴅɪɴɢ ᴛʜᴇ ʙᴇʟᴏᴡ ꜰᴏʀᴍᴀᴛ🍿 \nɪꜰ ᴏᴛᴘ ɪꜱ `12345`, **ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ɪᴛ ᴀꜱ** `1 2 3 4 5`.",
                 filters=filters.text,
                 timeout=360,
             )
@@ -173,7 +173,7 @@ async def generate_session(
                 return
     except TimeoutError:
         await msg.reply(
-            "Time limit reached of 5 minutes. Please start generating session again by tapping /start.",
+            "ᴛɪᴍᴇ ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ ᴏꜰ 5 ᴍɪɴᴜᴛᴇꜱ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ ʙʏ ᴛᴀᴘᴘɪɴɢ😸 /start.",
             reply_markup=InlineKeyboardMarkup(Data.generate_button),
         )
         return
@@ -187,13 +187,13 @@ async def generate_session(
                 await clientt.sign_in(phone_number, code.phone_code_hash, phone_code)
         except (PhoneCodeInvalid, PhoneCodeInvalidError):
             await msg.reply(
-                "OTP is invalid. Please start generating session again.",
+                "ᴏᴛᴘ ɪꜱ ɪɴᴠᴀʟɪᴅ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ🌴",
                 reply_markup=InlineKeyboardMarkup(Data.generate_button),
             )
             return
         except (PhoneCodeExpired, PhoneCodeExpiredError):
             await msg.reply(
-                "OTP is expired. Please start generating session again.",
+                "ᴏᴛᴘ ɪꜱ ᴇxᴘɪʀᴇᴅ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ🍬",
                 reply_markup=InlineKeyboardMarkup(Data.generate_button),
             )
             return
@@ -204,13 +204,13 @@ async def generate_session(
             try:
                 two_step_msg = await bot.ask_message(
                     user_id,
-                    "Your account has enabled two-step verification. Please provide the password.",
+                    "ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ʜᴀꜱ ᴇɴᴀʙʟᴇᴅ ᴛᴡᴏ-ꜱᴛᴇᴘ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ. ᴘʟᴇᴀꜱᴇ ᴘʀᴏᴠɪᴅᴇ ᴛʜᴇ ᴘᴀꜱꜱᴡᴏʀᴅ🙈",
                     filters=filters.text,
                     timeout=300,
                 )
             except TimeoutError:
                 await msg.reply(
-                    "Time limit reached of 5 minutes. Please start generating session again by tapping /start.",
+                    "ᴛɪᴍᴇ ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ ᴏꜰ 5 ᴍɪɴᴜᴛᴇꜱ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ ʙʏ ᴛᴀᴘᴘɪɴɢ /start.",
                     reply_markup=InlineKeyboardMarkup(Data.generate_button),
                 )
                 return
@@ -227,7 +227,7 @@ async def generate_session(
                 PasswordHashInvalidError,
             ):
                 await two_step_msg.reply(
-                    "Invalid Password Provided. Please start generating session again.",
+                    "ɪɴᴠᴀʟɪᴅ ᴘᴀꜱꜱᴡᴏʀᴅ ᴘʀᴏᴠɪᴅᴇᴅ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ🫧",
                     quote=True,
                     reply_markup=InlineKeyboardMarkup(Data.generate_button),
                 )
@@ -240,7 +240,7 @@ async def generate_session(
                 await clientt.sign_in_bot(phone_number)
         except (AccessTokenInvalid, AccessTokenInvalidError):
             await msg.reply(
-                "`BOT_TOKEN` is invalid. Please start generating session again.",
+                "`BOT_TOKEN` ɪꜱ ɪɴᴠᴀʟɪᴅ. ᴘʟᴇᴀꜱᴇ ꜱᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴀɢᴀɪɴ🙁",
                 reply_markup=InlineKeyboardMarkup(Data.generate_button),
             )
             return
@@ -253,7 +253,7 @@ async def generate_session(
     except Exception as e:
         LOGGER.error(e)
 
-    text = f"**{ty.upper()} STRING SESSION** \n\n`{string_session}` \n\nGenerated by @SessionStringzBot"
+    text = f"**{ty.upper()} STRING SESSION** \n\n`{string_session}` \n\nɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ @The_Architect04"
     try:
         if not is_bot:
             await clientt.send_message("me", text)
@@ -269,7 +269,7 @@ async def generate_session(
 
     await bot.send_message(
         msg.chat.id,
-        "Successfully generated {} string session. \n\nPlease check your saved messages! \n\nBy @ELUpdates".format(
+        "ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ɢᴇɴᴇʀᴀᴛᴇᴅ {} ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ. \n\nᴘʟᴇᴀꜱᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ꜱᴀᴠᴇᴅ ᴍᴇꜱꜱᴀɢᴇꜱ🍫 \n\nʙʏ @The_Architect04".format(
             "telethon" if telethon else "pyrogram"
         ),
     )
