@@ -1,6 +1,6 @@
 from data import Data
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardMarkup, Message, LinkPreviewOptions
 from ssnbot.db.sql import add_user, query_msg
 
 
