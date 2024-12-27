@@ -22,41 +22,41 @@ class Data:
     ]
 
     START = """
-**ʜᴇʏ {}
+**Hey {}
 
-ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {}
+Welcome to {}
 
-ɪꜰ ʏᴏᴜ ᴅᴏɴ'ᴛ ᴛʀᴜꜱᴛ ᴛʜɪꜱ ʙᴏᴛ, 
-> ᴘʟᴇᴀꜱᴇ ꜱᴛᴏᴘ ʀᴇᴀᴅɪɴɢ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ
-> ᴅᴇʟᴇᴛᴇ ᴛʜɪꜱ ᴄʜᴀᴛ
+If you don't trust this bot, 
+> Please stop reading this message
+> Delete this chat
 
-ꜱᴛɪʟʟ ʀᴇᴀᴅɪɴɢ?
-ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ᴍᴇ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ᴘʏʀᴏɢʀᴀᴍ ᴀɴᴅ ᴛᴇʟᴇᴛʜᴏɴ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ. ᴜꜱᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴꜱ ᴛᴏ ʟᴇᴀʀɴ ᴍᴏʀᴇ ! 
+Still reading?
+You can use me to generate Pyrogram and Telethon string session. Use below buttons to learn more !
 
 By @The_Architect04**
     """
 
     HELP = """
-🥷 **ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ** 🥷
+🌴 **Available Commands** 🌴
 
-/about - ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ
-/help - ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ
-/start - ꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ
-/generate - ɢᴇɴᴇʀᴀᴛᴇ ꜱᴇꜱꜱɪᴏɴ
-/cancel - ᴄᴀɴᴄᴇʟ ᴛʜᴇ ᴘʀᴏᴄᴇꜱꜱ
-/restart -  ᴛᴏ ꜱᴛᴀʀᴛ ᴀ ɴᴇᴡ
+/about - About The Bot
+/help - This Message
+/start - Start the Bot
+/generate - Generate Session
+/cancel - Cancel the process
+/restart - To start a new
 """
 
     ABOUT = """
-**ᴀʙᴏᴜᴛ ᴛʜɪꜱ ʙᴏᴛ** 
+**About This Bot** 
 
-ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ᴘʏʀᴏᴛɢꜰᴏʀᴋ ᴀɴᴅ ᴛᴇʟᴇᴛʜᴏɴ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ @The_Architect04
+Telegram Bot to generate Pyrogram and Telethon string session by @The_Architect04
 
-ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [ᴄʟɪᴄᴋ ʜᴇʀᴇ](https://github.com/EL-Coders/SessionStringBot)
+Source Code : [Click Here](https://t.me/The_Architect04)
 
-ꜰʀᴀᴍᴇᴡᴏʀᴋ : [ᴘʏʀᴏᴛɢꜰᴏʀᴋ](https://t.me/pyrotgfork/160)
+Framework : [Pyrogram](https://docs.pyrogram.org)
 
-ʟᴀɴɢᴜᴀɢᴇ : [ᴘʏᴛʜᴏɴ](https://www.python.org)
+Language : [Python](https://www.python.org)
 
-ᴅᴇᴠᴇʟᴏᴘᴇʀ : @Marwin_ll
+Developer : @Marwin_ll
     """
