@@ -31,8 +31,8 @@ from ssnbot import LOGGER
 ask_ques = "ᴘʟᴇᴀꜱᴇ ᴄʜᴏᴏꜱᴇ ᴛʜᴇ ᴘʏᴛʜᴏɴ ʟɪʙʀᴀʀʏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ꜰᴏʀ 🤖"
 buttons_ques = [
     [
-        InlineKeyboardButton("🌿ᴘʏʀᴏɢʀᴀᴍ🌿", callback_data="pyrogram"),
-        InlineKeyboardButton("🌲ᴛᴇʟᴇᴛʜᴏɴ🌲", callback_data="telethon"),
+        InlineKeyboardButton("🍷ᴘʏʀᴏɢʀᴀᴍ🍷", callback_data="pyrogram"),
+        InlineKeyboardButton("🍧ᴛᴇʟᴇᴛʜᴏɴ🍧", callback_data="telethon"),
     ],
 ]
 
